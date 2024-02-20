@@ -1,0 +1,105 @@
+// Import nf variables.
+@import "_variables";
+
+// Import nf fonts.
+@import "_fonts";
+
+// Import SAL.
+@import "../sal/sal";
+
+$primary: $sw-blue;
+$secondary: $sw-orange;
+$tertiary: $nf-pink;
+$dark: $nf-dark-blue;
+$light: $nf-light-blue;
+// $theme-colors: (
+//     "primary": $sw-blue,
+//     "secondary": $nf-green,
+//     "tertiary": $nf-pink,
+//     "dark": $nf-dark-blue,
+//     "light": $nf-light-blue,
+// );
+
+$custom-theme-colors: (
+    "sw-blue": $sw-blue,
+    "sw-purple": $sw-purple,
+    "sw-magenta": $sw-magenta,
+    "sw-red": $sw-red,
+    "sw-orange": $sw-orange,
+    "sw-yellow": $sw-yellow
+);
+
+$font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: Hack, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// Configuration
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/variables-dark";
+@import "../bootstrap/mixins";
+@import "../bootstrap/maps";
+@import "../bootstrap/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+        map-get($utilities, "color"),
+        (
+            values: map-merge(
+                map-get(map-get($utilities, "color"), "values"),
+                (
+                    $custom-theme-colors
+                ),
+        ),
+      ),
+    ),
+    "background-color": map-merge(
+        map-get($utilities, "background-color"),
+        (
+            values: map-merge(
+                map-get(map-get($utilities, "background-color"), "values"),
+                (
+                    $custom-theme-colors
+                ),
+            ),
+        ),
+    ),
+    "border-color": map-merge(
+        map-get($utilities, "border-color"),
+        (
+            values: map-merge(
+                map-get(map-get($utilities, "border-color"), "values"),
+                (
+                    $custom-theme-colors
+                ),
+            ),
+        ),
+    ),
+  ),
+);
+
+@import "../bootstrap/bootstrap";
+
+
+// Body background
+.bg-medium {
+    background-color: $ps-medium;
+}
+
+// Extra border utility classes.
+.border-1 {
+    border-width: 1px !important;
+}
+
+.border-2 {
+    border-width: 2px !important;
+}
+
+.border-3 {
+    border-width: 3px !important;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}

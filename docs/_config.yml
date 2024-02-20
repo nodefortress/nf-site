@@ -1,0 +1,18 @@
+title: Node Fortress
+author: Node Fortress
+email: hello@nodefortress.io
+
+description: ""
+
+domain: nodefortress.io
+url: https://nodefortress.io
+
+github_username:  nodefortress
+
+# Build settings
+markdown: kramdown
+
+plugins:
+
+sass:
+  style: compressed
